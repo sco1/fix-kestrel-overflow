@@ -18,6 +18,14 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Typing :: Typed",
 ]
+packages = [{include="fix_kestrel_overflow"}]
+
+include = [
+    {path = "./CHANGELOG.md", format = "sdist"}
+]
+
+[tool.poetry.scripts]
+fixkestrel = "fix_kestrel_overflow.main:kestrel_cli"
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -26,7 +34,6 @@ typer = "^0.11"
 [tool.poetry.dev-dependencies]
 black = "^24.3"
 bump2version = "^1.0"
-deptry = "^0.14"
 flake8 = "^7.0"
 flake8-annotations = "^3.0"
 isort = "^5.12"
@@ -62,9 +69,6 @@ warn_redundant_casts = true
 warn_return_any = true
 warn_unused_configs = true
 warn_unused_ignores = true
-
-[tool.deptry.per_rule_ignores]
-DEP004 = ["pytest", "pytest_check"]
 
 [build-system]
 requires = ["poetry-core>=1.2"]
